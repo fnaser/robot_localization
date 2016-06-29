@@ -1,0 +1,13 @@
+<launch>
+
+  <group ns="blue_prius">
+  <node pkg="robot_localization" type="ukf_localization_node" name="ukf_se" clear_params="true">
+    <rosparam command="load" file="$(find robot_localization)/params/ukf_blue_prius.yaml" />
+
+    <!--  Placeholder for output topic remapping
+    <remap from="odometry/filtered" to=""/>
+    -->
+
+  </node>
+  </group>
+</launch>
