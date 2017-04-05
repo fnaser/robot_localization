@@ -42,6 +42,7 @@
 #include <ros/ros.h>
 #include <std_msgs/String.h>
 #include <nav_msgs/Odometry.h>
+#include "std_msgs/Float64.h"
 #include <sensor_msgs/Imu.h>
 #include <geometry_msgs/Twist.h>
 #include <geometry_msgs/TwistStamped.h>

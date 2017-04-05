@@ -1632,6 +1632,7 @@ namespace RobotLocalization
 
     // Publisher
     ros::Publisher positionPub = nh_.advertise<nav_msgs::Odometry>("odometry/filtered", 20);
+    ros::Publisher speedPub = nh_.advertise<std_msgs::Float64>("odometry/speed",20);
     tf2_ros::TransformBroadcaster worldTransformBroadcaster;
 
     ros::Rate loop_rate(frequency_);
@@ -1719,7 +1720,9 @@ namespace RobotLocalization
 
         // Fire off the position and the transform
         positionPub.publish(filteredPosition);
-
+	std_msgs::Float64 speed_msg;
+	speed_msg.data = filteredPosition.twist.twist.linear.x;
+	speedPub.publish(speed_msg);
         if (printDiagnostics_)
         {
           freqDiag.tick();
